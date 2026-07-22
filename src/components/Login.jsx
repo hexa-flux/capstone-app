@@ -76,9 +76,13 @@ export default function Login({ submitUsername }) {
 
         // success
         const displayName = matchedUser.username || matchedUser.name;
-        if (typeof submitUsername === "function") submitUsername(displayName);
-        sessionStorage.setItem("name", displayName);
-        navigate("/", { state: { name: displayName } });
+
+        // Call the parent prop which should call AuthContext.login()
+        // (AuthProvider will persist the user)
+        if (typeof submitUsername === "function") {
+          submitUsername(displayName);
+        }
+        navigate("/", { state: { replace: true } });
 
         resetForm();
         setSubmitting(false);
@@ -87,7 +91,11 @@ export default function Login({ submitUsername }) {
       {({ isSubmitting }) => (
         <Form>
           <label htmlFor="identifier">Username or Email</label>
-          <Field id="identifier" name="identifier" placeholder="Username or Email" />
+          <Field
+            id="identifier"
+            name="identifier"
+            placeholder="Username or Email"
+          />
           <div style={{ color: "red" }}>
             <ErrorMessage name="identifier" />
           </div>
