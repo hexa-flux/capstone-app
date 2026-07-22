@@ -1,40 +1,44 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
 
+import { AuthContext } from "../auth/AuthContext";
+
 import NavBar from "../routes/navBar";
+import DashboardCentral from "./DashboardCentral";
 import Register from "./Register";
 import Login from "./Login";
 
 export default function Dashboard() {
-  const [name, setName] = useState("");
+  const { user, login, logout } = useContext(AuthContext);
+
   const [showLogin, setShowLogin] = useState(true); // Controls which form to show
   const location = useLocation();
 
   // Attempt to reload name from navigation state
+  // Sign in via the context across the whole app
   useEffect(() => {
     const navName = location?.state?.name;
-    const storedName = sessionStorage.getItem("name"); // Session storage fallback
-    if (navName) {
-      setName(location.state.name);
-    } else if (storedName) {
-      setName(storedName);
+    if (navName && (!user || user.name !== navName)) {
+      const userObj = { name: navName };
+      login(userObj);
     }
-  }, [location?.state]); // Only react to location.state changes
+  }, [location?.state?.name, user, login]); // Only react to location.state changes
 
   const submitName = (username) => {
-    setName(username);
+    const userObj = { name: username };
+    login(userObj);
   };
 
   const handleRegistered = (payload) => {
     setShowLogin(true);
 
-    // if (payload?.username) {...}
+    // Optionally use payload.username to pre-fill or auto-login:
+    // if (payload?.username) submitName(payload.username);
   };
 
   const handleLogout = () => {
-    setName("");
-    sessionStorage.removeItem("name");
+    logout();
     setShowLogin(true);
   };
 
@@ -43,9 +47,10 @@ export default function Dashboard() {
       <NavBar />
       <h1>Dashboard</h1>
 
-      {name ? (
+      {user ? (
         <>
-          <h2>Welcome, {name}</h2>
+          <h2>Welcome, {user.name}</h2>
+          <DashboardCentral/>
           <button id="LogoutBtn" onClick={handleLogout}>
             Logout
           </button>
