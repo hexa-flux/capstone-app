@@ -59,8 +59,12 @@ export default function AddEvent() {
 
   return (
     <div>
-      <NavBar />
+      <header>
+        <NavBar />
+      </header>
+      <hr className="hr-large"></hr>
       <h1>Add Event</h1>
+      <hr className="hr-medium"></hr>
 
       {!username ? (
         <>
@@ -89,6 +93,7 @@ export default function AddEvent() {
 
           <EventForm username={username} onSubmit={persistEvent} />
 
+          <br></br>
           <hr />
 
           <h2>Your events</h2>
@@ -107,6 +112,7 @@ export default function AddEvent() {
       )}
 
       <footer>
+        <hr className="hr-medium"></hr>
         <p>&copy; 2026 page by hexaflux.</p>
       </footer>
     </div>

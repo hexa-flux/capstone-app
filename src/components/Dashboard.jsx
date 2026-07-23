@@ -66,8 +66,12 @@ export default function Dashboard() {
 
   return (
     <div>
-      <NavBar />
+      <header>
+        <NavBar />
+      </header>
+      <hr className="hr-large"></hr>
       <h1>Dashboard</h1>
+      <hr className="hr-medium"></hr>
 
       {user ? (
         <>
@@ -111,6 +115,7 @@ export default function Dashboard() {
       )}
 
       <footer>
+        <hr className="hr-medium"></hr>
         <p>&copy; 2026 page by hexaflux.</p>
       </footer>
     </div>
