@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../auth/AuthContext";
 import EventEditForm from "../forms/EventEditForm";
 
+import "./DashboardCentral.css"
+
 /** ordinal suffix helper */
 function dayOrdinal(n) {
   const s = ["th", "st", "nd", "rd"];
@@ -162,11 +164,11 @@ export default function DashboardCentral() {
                   <li key={ev.id} style={{ marginBottom: "0.75rem", padding: "0.5rem", border: "1px solid #eee", borderRadius: 4 }}>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
                       <div style={{ flex: 1, marginRight: 12 }}>
-                        {/* Event heading as requested */}
+                        {/* Event heading */}
                         <div style={{ fontSize: "1.05rem", fontWeight: 600 }}>{heading}</div>
 
-                        {/* Only show the requested fields */}
-                        <div style={{ color: "#444", marginTop: 6 }}>
+                        {/* Detail fields */}
+                        <div style={{ marginTop: 6 }}>
                           <div><strong>Location:</strong> {ev.location || "—"}</div>
                           <div style={{ marginTop: 6 }}><strong>Description:</strong></div>
                           <div style={{ whiteSpace: "pre-wrap", marginTop: 4 }}>{ev.description || "—"}</div>

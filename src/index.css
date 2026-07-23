@@ -6,8 +6,10 @@
 }
 
 :root {
-  --text: #6b6375;
-  --bg: #fff;
+  --text: #F193B8;
+  --bg: #171232;
+  --rule: #FFC2C5;
+  --hover: #D03940;
 
   --sans: "InconsolataVariable", system-ui, sans-serif;
   --heading: "InconsolataVariable", system-ui, sans-serif;
@@ -19,13 +21,6 @@
 
   @media (max-width: 1024px) {
     font-size: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --bg: #16171d;
   }
 }
 
@@ -52,6 +47,7 @@ h2 {
   font-family: var(--heading);
   font-weight: 500;
   color: var(--text);
+  text-transform: uppercase;
 }
 
 h1 {
@@ -83,27 +79,73 @@ hr {
   margin-top: -10px;
 }
 
-.navbar {
+.hr-large {
+  border: 4px solid var(--rule);
+  margin-top: 15px;
+}
+
+.hr-medium {
+  border: 2px solid var(--rule);
+  margin-top: 5px;
+  margin-bottom: 40px;
+}
+
+a {
+  color: var(--rule);
+}
+
+a:hover {
+  color: var(--hover);
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input, textarea, select, button {
+  font-family: var(--sans);
+  font-weight: inherit;
+  font-style: inherit;
+  background-color: black;
+  border: black;
+  color: var(--text);
+  font-size: 20px;
+  font-weight: 700;
+  padding: 10px;
+  border: none;
+  margin: 10px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+a:focus, button:focus, input:focus, textarea:focus {
+  outline: 2px solid var(--hover)
+}
+
+button {
+  text-transform: uppercase;
+}
+
+button:hover {
+  background-color: var(--hover);
+}
+
+button:focus {
+  background-color: black;
+}
+
+header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #333;
-  color: #fff;
-  padding: 1rem;
+  align-items: center;          /* vertically center */
+  gap: 1rem;                    /* optional small spacing between elements */
+  width: 100%;
+  padding: 1 0rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-sizing: border-box;
 }
 
-.nav-links {
-  list-style-type: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links li {
-  margin-right: 1rem;
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
+footer {
+  margin-top: 100px;
 }
