@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 
+import "./formStyling.css";
+
 /**
  * Props:
  * - event: { id, title, date, time, location, description, owner, ... }
@@ -35,7 +37,7 @@ export default function EventEditForm({ event, onSave, onCancel }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ marginTop: 8, border: "1px solid #eee", padding: 8 }}>
+    <form onSubmit={handleSubmit} className="editingForm">
       {error && <div style={{ color: "red" }}>{error}</div>}
       <div>
         <label>
