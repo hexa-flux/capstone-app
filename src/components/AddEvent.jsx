@@ -62,54 +62,57 @@ export default function AddEvent() {
       <header>
         <NavBar />
       </header>
-      <hr className="hr-large"></hr>
-      <h1>Add Event</h1>
-      <hr className="hr-medium"></hr>
 
-      {!username ? (
-        <>
-          <p>Please log in to create and view events.</p>
+      <main>
+        <hr className="hr-large"></hr>
+        <h1>Add Event</h1>
+        <hr className="hr-medium"></hr>
 
-          <button
-            onClick={() => {
-              // navigate to dashboard and ask it to show the login form
-              navigate("/", { state: { openLogin: true } });
-            }}
-          >
-            Go to Login
-          </button>
-        </>
-      ) : (
-        <>
-          <p>
-            Signed in as <strong>{username}</strong>
-          </p>
+        {!username ? (
+          <>
+            <p>Please log in to create and view events.</p>
 
-          {msg && (
-            <div style={{ color: msg.type === "error" ? "red" : "green" }}>
-              {msg.text}
-            </div>
-          )}
+            <button
+              onClick={() => {
+                // navigate to dashboard and ask it to show the login form
+                navigate("/", { state: { openLogin: true } });
+              }}
+            >
+              Go to Login
+            </button>
+          </>
+        ) : (
+          <>
+            <p>
+              Signed in as <strong>{username}</strong>
+            </p>
 
-          <EventForm username={username} onSubmit={persistEvent} />
+            {msg && (
+              <div style={{ color: msg.type === "error" ? "red" : "green" }}>
+                {msg.text}
+              </div>
+            )}
 
-          <br></br>
-          <hr />
+            <EventForm username={username} onSubmit={persistEvent} />
 
-          <h2>Your events</h2>
-          {events.length === 0 ? (
-            <p>No events yet.</p>
-          ) : (
-            <ul>
-              {events.map((ev) => (
-                <li key={ev.id}>
-                  <strong>{ev.title}</strong> — {ev.date}
-                </li>
-              ))}
-            </ul>
-          )}
-        </>
-      )}
+            <br></br>
+            <hr />
+
+            <h2>Your events</h2>
+            {events.length === 0 ? (
+              <p>No events yet.</p>
+            ) : (
+              <ul>
+                {events.map((ev) => (
+                  <li key={ev.id}>
+                    <strong>{ev.title}</strong> — {ev.date}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </>
+        )}
+      </main>
 
       <footer>
         <hr className="hr-medium"></hr>

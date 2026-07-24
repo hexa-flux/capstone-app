@@ -69,50 +69,54 @@ export default function Dashboard() {
       <header>
         <NavBar />
       </header>
-      <hr className="hr-large"></hr>
-      <h1>Dashboard</h1>
-      <hr className="hr-medium"></hr>
+      <main>
+        <hr className="hr-large"></hr>
+        <h1>Dashboard</h1>
+        <hr className="hr-medium"></hr>
 
-      {user ? (
-        <>
-          <h2>Welcome, {user.name}</h2>
-          <DashboardCentral />
-          <button id="LogoutBtn" onClick={handleLogout}>
-            Logout
-          </button>
-        </>
-      ) : (
-        <>
-          {showLogin ? (
-            <>
-              <h2>Login</h2>
-              <Login submitUsername={submitName} />
-            </>
-          ) : (
-            <>
-              <h2>Register</h2>
-              <Register onRegistered={handleRegistered} />
-            </>
-          )}
-
-          {/* Toggle links/buttons to switch between Login and Register */}
-          <div>
+        {user ? (
+          <>
+            <h2>Welcome, {user.name}</h2>
+            <DashboardCentral />
+            <button id="LogoutBtn" onClick={handleLogout}>
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
             {showLogin ? (
               <>
-                <span>Don't have an account? </span>
-                <button onClick={() => setShowLogin(false)}>
-                  Go to Register
-                </button>
+                <h2>Login</h2>
+                <Login submitUsername={submitName} />
               </>
             ) : (
               <>
-                <span>Already have an account? </span>
-                <button onClick={() => setShowLogin(true)}>Go to Login</button>
+                <h2>Register</h2>
+                <Register onRegistered={handleRegistered} />
               </>
             )}
-          </div>
-        </>
-      )}
+
+            {/* Toggle links/buttons to switch between Login and Register */}
+            <div>
+              {showLogin ? (
+                <>
+                  <span>Don't have an account? </span>
+                  <button onClick={() => setShowLogin(false)}>
+                    Go to Register
+                  </button>
+                </>
+              ) : (
+                <>
+                  <span>Already have an account? </span>
+                  <button onClick={() => setShowLogin(true)}>
+                    Go to Login
+                  </button>
+                </>
+              )}
+            </div>
+          </>
+        )}
+      </main>
 
       <footer>
         <hr className="hr-medium"></hr>

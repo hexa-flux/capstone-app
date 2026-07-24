@@ -8,9 +8,13 @@ export default function Help() {
       <header>
         <NavBar />
       </header>
-      <hr className="hr-large"></hr>
-      <h1>Help</h1>
-      <hr className="hr-medium"></hr>
+
+      <main>
+        <hr className="hr-large"></hr>
+        <h1>Help</h1>
+        <hr className="hr-medium"></hr>
+        <h2>How to use the event app</h2>
+      </main>
 
       <footer>
         <hr className="hr-medium"></hr>

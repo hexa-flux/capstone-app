@@ -152,20 +152,16 @@ export default function DashboardCentral() {
         dates.map((dateKey) => (
           <section key={dateKey} style={{ marginBottom: "1rem" }}>
             <h4>{formatDateHeading(dateKey)}</h4>
-            <ul style={{ listStyle: "none", paddingLeft: 0 }}>
+            <ul className="eventsGrid">
               {grouped[dateKey].map((ev) => {
-                const eventHeadingParts = [
-                  ev.title || "Untitled",
-                  ev.date ? formatDateHeading(ev.date) : "Unscheduled"
-                ];
-                const heading = `${eventHeadingParts[0]} - ${eventHeadingParts[1]}${ev.time ? `, ${ev.time}` : ""}`;
+                const heading = `${ev.title ? `${ev.title}`: "Untitled"} - ${ev.time ? `${ev.time}` : ""}`;
 
                 return (
-                  <li key={ev.id} style={{ marginBottom: "0.75rem", padding: "0.5rem", border: "1px solid #eee", borderRadius: 4 }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+                  <li key={ev.id} className="eventBox">
+                    <div className="boxTable">
                       <div style={{ flex: 1, marginRight: 12 }}>
                         {/* Event heading */}
-                        <div style={{ fontSize: "1.05rem", fontWeight: 600 }}>{heading}</div>
+                        <h5>{heading}</h5>
 
                         {/* Detail fields */}
                         <div style={{ marginTop: 6 }}>
@@ -175,7 +171,7 @@ export default function DashboardCentral() {
                         </div>
                       </div>
 
-                      <div style={{ minWidth: 110, textAlign: "right" }}>
+                      <div className="eventActions">
                         <button onClick={() => startEdit(ev.id)} style={{ marginBottom: 6 }}>Edit</button>
                         <div><button onClick={() => handleDelete(ev.id)}>Delete</button></div>
                       </div>

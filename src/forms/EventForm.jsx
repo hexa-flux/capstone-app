@@ -1,6 +1,8 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
+import "./formStyling.css";
+
 /**
  * Props:
  * - username: string (current user)
@@ -53,8 +55,8 @@ export default function EventForm({ username, onSubmit, initialValues }) {
       }}
     >
       {({ isSubmitting }) => (
-        <Form>
-          <div>
+        <Form className="eventFormGrid">
+          <div className="field">
             <label htmlFor="title">Event name</label>
             <Field id="title" name="title" placeholder="Event name" />
             <div style={{ color: "red" }}>
@@ -62,7 +64,7 @@ export default function EventForm({ username, onSubmit, initialValues }) {
             </div>
           </div>
 
-          <div>
+          <div className="field">
             <label htmlFor="date">Date</label>
             <Field id="date" name="date" type="date" />
             <div style={{ color: "red" }}>
@@ -70,7 +72,7 @@ export default function EventForm({ username, onSubmit, initialValues }) {
             </div>
           </div>
 
-          <div>
+          <div className="field">
             <label htmlFor="time">Time</label>
             <Field id="time" name="time" type="time" />
             <div style={{ color: "red" }}>
@@ -78,7 +80,7 @@ export default function EventForm({ username, onSubmit, initialValues }) {
             </div>
           </div>
 
-          <div>
+          <div className="field">
             <label htmlFor="location">Location</label>
             <Field id="location" name="location" placeholder="Location" />
             <div style={{ color: "red" }}>
@@ -86,7 +88,7 @@ export default function EventForm({ username, onSubmit, initialValues }) {
             </div>
           </div>
 
-          <div>
+          <div className="field description">
             <label htmlFor="description">Description</label>
             <Field
               id="description"
@@ -96,9 +98,11 @@ export default function EventForm({ username, onSubmit, initialValues }) {
             />
           </div>
 
-          <button type="submit" disabled={isSubmitting}>
-            {isSubmitting ? "Saving..." : "Add Event"}
-          </button>
+          <div className="field actions">
+            <button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "Saving..." : "Add Event"}
+            </button>
+          </div>
         </Form>
       )}
     </Formik>

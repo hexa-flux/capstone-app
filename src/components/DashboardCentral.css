@@ -1,0 +1,62 @@
+.eventsGrid {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* two equal columns */
+  gap: 1rem; /* space between boxes */
+  align-items: start;
+}
+
+.eventBox {
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+  border: 2px solid var(--rule);
+  border-radius: 4px;
+}
+
+.boxTable {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.eventActions {
+  display: inline-block; /* shrink-to-fit to the widest button content */
+  text-align: center; /* optional: centers button text when they are full width */
+  vertical-align: middle; /* if you need inline alignment with adjacent elements */
+  padding: 0; /* optional: keep tight */
+  box-sizing: border-box;
+}
+
+.eventActions button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 6px; /* spacing between stacked buttons */
+}
+
+/* responsive: one column on narrow screens */
+@media (max-width: 768px) {
+  .eventsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  /* the container that previously held left + right columns */
+  .boxTable {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* make children fill available width */
+  }
+
+  /* make the actions bar span full width and center buttons if needed */
+  .eventActions {
+    width: 100%;
+    justify-content: center; /* or left if you prefer */
+  }
+
+  /* make each action button fill the available width */
+  .eventActions button {
+    width: 100%;
+    flex: none;
+  }
+}
