@@ -1,16 +1,15 @@
-# React + Vite
+# Event Management App
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+This React App provides a working login system with event keeping and management functionality, using session storage for demonstration. Below is how to use the app.
 
-Currently, two official plugins are available:
+## Adding Events
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+To add an event, make sure you're signed in with your account first. Then go to the "Add Event" page and fill in the details of your event. Give it a memorable title, a date, time, location and description. When you are ready to add your event, click on the "Add Event" buttonand it will appear on your dashboard.
 
-## React Compiler
+## Deleting Events
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+All events on your dashboard can be easily deleted. Simply click onthe "Delete" button, inside the box of any event you wish to remove.
 
-## Expanding the Oxlint configuration
+## Editing Events
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+ Made a mistake? Plans changed? Any event you've saved can be edited at any time! Simply click on the "Edit" button in the box of the desiredevent, and change the details in the pop-up form. Click on "Save" to save the updated details, or click on "Cancel" to discard your changes.
