@@ -8,6 +8,7 @@ import NavBar from "../routes/navBar";
 import DashboardCentral from "./DashboardCentral";
 import Register from "../forms/Register";
 import Login from "../forms/Login";
+import Logo from "../assets/v2-logo-long.svg";
 
 export default function Dashboard() {
   const { user, login, logout } = useContext(AuthContext);
@@ -120,7 +121,10 @@ export default function Dashboard() {
 
       <footer>
         <hr className="hr-medium"></hr>
-        <p>&copy; 2026 page by hexaflux.</p>
+        <div className="footerDiv">
+          <p>&copy; 2026 page by hexaflux.</p>
+          <img src={Logo} width={120} alt="hexaflux" />
+        </div>
       </footer>
     </div>
   );

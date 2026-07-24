@@ -5,6 +5,7 @@ import { AuthContext } from "../auth/AuthContext";
 
 import NavBar from "../routes/navBar";
 import EventForm from "../forms/EventForm";
+import Logo from "../assets/v2-logo-long.svg";
 
 export default function AddEvent() {
   const { user } = useContext(AuthContext);
@@ -116,7 +117,10 @@ export default function AddEvent() {
 
       <footer>
         <hr className="hr-medium"></hr>
-        <p>&copy; 2026 page by hexaflux.</p>
+        <div className="footerDiv">
+          <p>&copy; 2026 page by hexaflux.</p>
+          <img src={Logo} width={120} alt="hexaflux" />
+        </div>
       </footer>
     </div>
   );
