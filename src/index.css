@@ -32,7 +32,9 @@ body {
   width: 1056px;
   max-width: 100%;
   margin: 0 auto;
-  min-height: 100svh;
+  min-height: 100svh; /* prefer small viewport height (handles UI chrome) */
+  min-height: 100dvh; /* dynamic viewport height where supported */
+  min-height: 100vh;  /* fallback for older browsers */
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -161,6 +163,17 @@ header {
 
 footer {
   margin-top: 100px;
+}
+
+.footerDiv {
+  display: flex;
+  align-items: center;          /* vertically center */
+  justify-content: flex-start;
+
+  img {
+    margin-left: auto;
+    white-space: nowrap;
+  }
 }
 
 @media (max-width: 1100px) {
